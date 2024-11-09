@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct ThirdView: View {
+    //@Bingingで変数を定義する。この変数はContentViewから参照する
+    @Binding var isShowThirdView: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.green.ignoresSafeArea(.all)
+            VStack{
+                Text("Third View")
+                    .font(.largeTitle)
+                Button{
+                    isShowThirdView = false
+                } label: {
+                    Text("閉じる").font(.largeTitle)
+                        .padding()
+                        .background(.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+            }
+            
+        }
     }
 }
 
-#Preview {
-    ThirdView()
-}
+
